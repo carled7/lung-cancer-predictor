@@ -1,32 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="168dp"
-        android:text="prever"
+        android:layout_width="301dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="36dp"
+        android:text="Predict"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Insert how old you are"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleAge"
+        android:inputType="number"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="330dp"
+            android:layout_height="60dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroupSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checkedButton="@+id/radio_button_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleSex"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:text="Male" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/titleSex"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:text="Sex:"
+        android:textSize="16dp"
+        app:fontFamily="@font/roboto_bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/age"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/titleAge"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:text="Age:"
+        android:textSize="16dp"
+        app:fontFamily="@font/roboto_bold"
+        app:layout_constraintBottom_toTopOf="@+id/age"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/titleCheckSection"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:text="Check on those that are positive for you:"
+        android:textSize="16dp"
+        app:fontFamily="@font/roboto_bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupSex"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:layout_width="290dp"
+        android:layout_height="257dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleCheckSection"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+
+            android:orientation="vertical">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/smoking"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Smoking"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.322"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleCheckSection"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/yellowFingers"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Yellow fingers"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.322"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/smoking"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/anxiety"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Anxiety"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.322"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yellowFingers"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/peerPressure"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Peer Pressure"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.322"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anxiety"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/chronicDisease"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Chronic disease"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.322"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/peerPressure"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/fatigue"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Fatigue"
+                tools:ignore="MissingConstraints,NotSibling" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/allergy"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Allergy"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/wheezing"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Wheezing"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/alcohol"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Alcohol consuming"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/coughing"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Coughing"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/shortness"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Shortness of breath"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/swallowing"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Swallowing difficulty"
+                tools:ignore="MissingConstraints" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/chestPain"
+                android:layout_width="286dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="8dp"
+                android:checked="false"
+                android:text="Chest pain"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,12 +3,12 @@ import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
 
-class HttpPostTask(private val callback: (String) -> Unit) : AsyncTask<Void, Void, String>() {
+class HttpPostTask(private val data: String,private val callback: (String) -> Unit) : AsyncTask<Void, Void, String>() {
 
     override fun doInBackground(vararg params: Void?): String {
-        val url = URL(" https://3428-179-106-16-192.ngrok-free.app/predict")
+        val url = URL("https://5a89-200-131-116-2.ngrok-free.app/predict")
         val connection = url.openConnection() as HttpURLConnection
-        val data = "{\"data\": [\"M\", 47, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]}"
+        //val data = "{\"data\": [\"M\", 47, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]}"
         connection.requestMethod = "POST"
         connection.setRequestProperty("Content-Type", "application/json; utf-8")
         connection.setRequestProperty("Accept", "application/json")
